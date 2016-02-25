@@ -10,15 +10,14 @@ RUN apt-get clean && \
     apt-get install -y hhvm &&   apt-get install -y hhvm-dev 
   
 
-RUN  apt-get install -y git curl && 
+RUN  apt-get install -y git curl 
 RUN hhvm --version
-RUN git clone https://github.com/akalend/hhvm-msgpack.git && cd hhvm-msgpack
-RUN  git checkout --track origin/hhvm-v-3.9 
-RUN  hphpize && cmake . && make  && cd ..
+RUN git clone https://github.com/akalend/hhvm-msgpack.git 
 RUN  rm -rf /var/lib/apt/lists/*
 
 COPY php.ini /etc/hhvm/php.ini
+COPY init.sh /init.sh
 
-CMD ["hhvm", "-a"]
+CMD ["init.sh"]
 
  
