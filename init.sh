@@ -6,4 +6,4 @@ cmake .
 make  
 cd /
 
-hhvm -a
+/bin/bash

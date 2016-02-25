@@ -24,6 +24,5 @@ COPY init.sh /init.sh
 
 EXPOSE 9000
 
-CMD ["init.sh"]
-
+ENTRYPOINT ["/bin/bash", "/init.sh"]
  
